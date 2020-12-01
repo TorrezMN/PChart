@@ -1,2 +1,0 @@
-# PChart
-simple charting lib.
