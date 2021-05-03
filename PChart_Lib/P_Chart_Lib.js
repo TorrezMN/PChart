@@ -1,0 +1,119 @@
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+
+
+class Chart {
+    constructor(cfg) {
+        this.config = cfg;
+
+    }
+
+    draw_chart() {
+        push();
+        if (this.config.chart.colors == 'random') {
+            background(getRandomColor());
+        } else {
+            background(this.config.chart.colors);
+
+        }
+
+        ellipse(this.config.canvas_config.width * 0.20, this.config.canvas_config.height * 0.20, 40, 40);
+        pop();
+    }
+}
+
+
+class Cloud extends Chart {
+    constructor(cfg) {
+        super(cfg);
+        var cfg = this.config;
+        this.cloud = function (val) {
+            this.cloud_val = val;
+            this.acc = createVector(Math.random()*10>5? 2:-2,Math.random()*10>5? 2:-2);
+            this.pos = createVector(
+                random(cfg.canvas_config.width*0.10,cfg.canvas_config.width-cfg.canvas_config.width*0.10),
+                random(cfg.canvas_config.height*0.10,cfg.canvas_config.height-cfg.canvas_config.height*0.10)
+                );
+            this.draw_cloud = () => {
+                let c = getRandomColor();
+                push();
+                fill(c);
+                stroke(c);
+                textSize(map(this.cloud_val[1], cfg.chart.data_margins.bottom,cfg.chart.data_margins.top,10,100));
+                textAlign(CENTER,CENTER);
+                text(this.cloud_val[0], this.pos.x, this.pos.y);
+                pop();
+                this.update_cloud();
+            };
+            this.update_cloud = ()=>{
+                let with_margin = cfg.canvas_config.width*0.10;
+                let height_margin = cfg.canvas_config.height*0.10;
+                if(this.pos.x<=with_margin){
+                    this.acc.x*=-1;
+                }
+                if(this.pos.x>cfg.canvas_config.width-with_margin){
+                    this.acc.x*=-1;
+                }
+                if(this.pos.y<=height_margin){
+                    this.acc.y*=-1;
+                }
+                if(this.pos.y>cfg.canvas_config.height-height_margin){
+                    this.acc.y*=-1;
+                    
+                }
+                console.log(this.config);
+                this.pos.x+=this.acc.x;
+                this.pos.y+=this.acc.y;
+            }
+
+        }
+        this.clouds = [];
+
+        this.make_clouds();
+    }
+    make_clouds() {
+        let data = this.config.chart.data;
+        for (let i of Object.keys(data)) {
+            this.clouds.push(new this.cloud([i, data[i]]))
+        }
+
+    }
+    draw_chart() {
+        for (let i of this.clouds) {
+            i.draw_cloud();
+        }
+    }
+
+}
+
+
+
+
+var pchart;
+
+p5.prototype.p_chart = function (cfg) {
+    switch (cfg.chart.kind) {
+        case 'cloud_of_words':
+            pchart = new Cloud(cfg);
+            break;
+
+        default:
+            break;
+    }
+    // pchart = new Chart(cfg);
+};
+
+
+p5.prototype.draw_chart = function () {
+    pchart.draw_chart();
+};
+
+
+
