@@ -11,7 +11,7 @@ function setup() {
 
 		},
 		chart: {
-			kind: 'cloud_of_words',
+			kind: 'scatter',
 			colors: 'random',
 			data_margins:{
 				bottom:1000,
@@ -38,7 +38,7 @@ function setup() {
 
 
 	p_chart(conf);
-	// draw_chart();
+	draw_chart();
 }
 
 function draw() {
