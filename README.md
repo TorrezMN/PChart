@@ -1,10 +1,20 @@
-<p align="center">
-  <a href="" rel="noopener">
- <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
-</p>
+***
 
-<h3 align="center">PChart</h3>
+                    
+                    8888888b.   .d8888b.  888                       888    
+                    888   Y88b d88P  Y88b 888                       888    
+                    888    888 888    888 888                       888    
+                    888   d88P 888        88888b.   8888b.  888d888 888888 
+                    8888888P"  888        888 "88b     "88b 888P"   888    
+                    888        888    888 888  888 .d888888 888     888    
+                    888        Y88b  d88P 888  888 888  888 888     Y88b.  
+                    888         "Y8888P"  888  888 "Y888888 888      "Y888 
+                                                                           
+                                                        
 
+***
+
+<!-- 
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
@@ -12,11 +22,12 @@
 [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
-</div>
+</div> -->
 
 ---
 
-<p align="center"> Few lines describing your project.
+<p align="center"> 
+    A toy library to make graphics. Based on [P5js](https://p5js.org/).
     <br> 
 </p>
 
