@@ -24,10 +24,8 @@
 
 </div> -->
 
----
-
 <p align="center"> 
-    A toy library to make graphics. Based on [P5js](https://p5js.org/).
+    A toy library to make graphics. Based on <a href='https://p5js.org/'>P5js</a>.
     <br> 
 </p>
 
@@ -45,7 +43,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+A few years ago I was lucky enough to find [this](https://www.youtube.com/user/shiffman) YouTube channel and was fantastic. I learned a lot from Daniel. Things about "graphic" computation and algorithms. Inspired by his videos and the desire to practice something new is born this library. A simple library to make graphics.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
