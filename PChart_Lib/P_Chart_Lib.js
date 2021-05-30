@@ -153,19 +153,25 @@ class Cloud extends Chart {
   $$$$$$/   $$$$$$$/  $$$$$$$/    $$$$/   $$$$/   $$$$$$$/ $$/       
                                                                      
                                                                      
-                                                                     
+    TODO: Write documentation about the class.
  
 */
 
 class Scatter extends Chart {
+    
     constructor(cfg) {
         super(cfg);
         this.scatter_cfg = {};
         this.build_axis();
         this.draw_axis();
+        this.set_scatter_config();
+    }
+    set_scatter_config(){
+        this.scatter_cfg.canvas = this.config.canvas_config;
+        this.scatter_cfg.data = this.config.chart.data;
+        this.scatter_cfg.data_margins = this.config.chart.data_margins;
     }
     build_axis() {
-        this.scatter_cfg.canvas = this.config.canvas_config;
         this.scatter_cfg.margin_points = {
             'bottom_left': createVector(this.config.canvas_config.width * 0.10, this.config.canvas_config.height - this.config.canvas_config.height * 0.10),
             'top_left': createVector(this.config.canvas_config.width * 0.10, this.config.canvas_config.height * 0.10),
