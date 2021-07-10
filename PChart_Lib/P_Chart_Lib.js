@@ -140,73 +140,7 @@ class Cloud extends Chart {
 
 }
 
-/*
  
-   ______                         __      __                         
-  /      \                       /  |    /  |                        
- /$$$$$$  |  _______   ______   _$$ |_  _$$ |_     ______    ______  
- $$ \__$$/  /       | /      \ / $$   |/ $$   |   /      \  /      \ 
- $$      \ /$$$$$$$/  $$$$$$  |$$$$$$/ $$$$$$/   /$$$$$$  |/$$$$$$  |
-  $$$$$$  |$$ |       /    $$ |  $$ | __ $$ | __ $$    $$ |$$ |  $$/ 
- /  \__$$ |$$ \_____ /$$$$$$$ |  $$ |/  |$$ |/  |$$$$$$$$/ $$ |      
- $$    $$/ $$       |$$    $$ |  $$  $$/ $$  $$/ $$       |$$ |      
-  $$$$$$/   $$$$$$$/  $$$$$$$/    $$$$/   $$$$/   $$$$$$$/ $$/       
-                                                                     
-                                                                     
-    TODO: Write documentation about the class.
- 
-*/
-
-class Scatter extends Chart {
-    
-    constructor(cfg) {
-        super(cfg);
-        this.scatter_cfg = {};
-        this.build_axis();
-        this.draw_axis();
-        this.set_scatter_config();
-    }
-    set_scatter_config(){
-        this.scatter_cfg.canvas = this.config.canvas_config;
-        this.scatter_cfg.data = this.config.chart.data;
-        this.scatter_cfg.data_margins = this.config.chart.data_margins;
-    }
-    build_axis() {
-        this.scatter_cfg.margin_points = {
-            'bottom_left': createVector(this.config.canvas_config.width * 0.10, this.config.canvas_config.height - this.config.canvas_config.height * 0.10),
-            'top_left': createVector(this.config.canvas_config.width * 0.10, this.config.canvas_config.height * 0.10),
-            'bottom_right': createVector(this.config.canvas_config.width - this.config.canvas_config.width * 0.10, this.config.canvas_config.height - this.config.canvas_config.height * 0.10),
-            'top_right': createVector(this.config.canvas_config.width - this.config.canvas_config.width * 0.10, this.config.canvas_config.height * 0.10)
-
-        };
-
-    }
-    draw_axis() {
-        push();
-        fill('#FFFFFF');
-        stroke('#FFFFFF');
-        ellipseMode(CENTER);
-        // X Axis
-        line(
-            this.scatter_cfg.margin_points.bottom_left.x,
-            this.scatter_cfg.margin_points.bottom_left.y,
-            this.scatter_cfg.margin_points.bottom_right.x,
-            this.scatter_cfg.margin_points.bottom_right.y,
-        )
-        // Y Axis
-        line(
-            this.scatter_cfg.margin_points.bottom_left.x,
-            this.scatter_cfg.margin_points.bottom_left.y,
-            this.scatter_cfg.margin_points.top_left.x,
-            this.scatter_cfg.margin_points.top_left.y,
-        )
-        pop();
-    }
-
-}
-
-
-
 
 
 var pchart;
@@ -227,8 +161,8 @@ p5.prototype.p_chart = function (cfg) {
 
 
 p5.prototype.draw_chart = function () {
-    // pchart.draw_chart();
-    pchart.draw_axis();
+    pchart.draw_chart();
+    
 };
 
 

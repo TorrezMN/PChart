@@ -11,10 +11,10 @@ function setup() {
 
 		},
 		chart: {
-			kind: 'scatter',
+			kind: 'cloud_of_words',
 			colors: 'random',
-			data_margins:{
-				bottom:1000,
+			data_margins: {
+				bottom: 1000,
 				top: 5000,
 			},
 			data: {
